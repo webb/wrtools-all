@@ -1,6 +1,23 @@
 [submodule "wrtools-core"]
 	path = wrtools-core
 	url = https://github.com/webb/wrtools-core.git
+        branch = master
 [submodule "wrtools-git"]
 	path = wrtools-git
 	url = https://github.com/webb/wrtools-git.git
+[submodule "xalan-cli"]
+	path = xalan-cli
+	url = https://github.com/webb/xalan-cli.git
+        branch = master
+[submodule "doc-processing"]
+	path = doc-processing
+	url = https://wr24@git2.icl.gtri.org/scm/tools/doc-processing.git
+        branch = master
+[submodule "schematron-cli"]
+	path = schematron-cli
+	url = https://github.com/webb/schematron-cli.git
+	branch = master
+[submodule "saxon-cli"]
+	path = saxon-cli
+	url = https://github.com/webb/saxon-cli.git
+	branch = master

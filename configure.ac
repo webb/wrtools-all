@@ -1,11 +1,13 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([WR Tools: all], [0], [https://github.com/webb/wrtools-all/issues], [wrtools-all], [https://github.com/webb/wrtools-all])
+AC_INIT([Builder for all packages in WR Tools], [0], [https://github.com/webb/wrtools-all/issues], [wrtools-all], [https://github.com/webb/wrtools-all])
 
 if test "x$prefix" = "xNONE"
 then AC_MSG_ERROR([\$prefix is unset. Set with --prefix=\${install root directory}])
 fi
+
+AC_SUBST([PATH],[$PATH])
 
 # Checks for programs.
 AC_PROG_INSTALL
@@ -26,6 +28,10 @@ AC_DEFUN([WR_check_prog_options],[AC_PATH_PROGS($1,$2)
 
 WR_check_prog(bash)
 WR_check_prog_options(find,gfind find)
+
+AC_PATH_PROGS(realpath,grealpath realpath)
+test "x$[]$realpath" = "x" && AC_MSG_ERROR([realpath not found])
+
 
 AC_CONFIG_FILES([Makefile], [chmod 444 Makefile])
 AC_SUBST([config_files],$ac_config_files)
