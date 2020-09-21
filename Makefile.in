@@ -39,8 +39,9 @@ realpath = @realpath@
 
 config_files = @config_files@ # output files built by configure
 
-packages = wrtools-core saxon-cli xalan-cli schematron-cli doc-processing
+packages = wrtools-core saxon-cli xalan-cli schematron-cli xml-schema-validator doc-processing
 
+# if "make" has been run, this will prep for "make install"
 ifeq (${all_dir},${wildcard ${all_dir}})
 all_files = ${shell ${find} ${all_dir} -type f}
 else
@@ -97,6 +98,7 @@ doc-processing: ${packages_build_dir}/doc-processing/token-make-install
 ${packages_build_dir}/doc-processing/token-make-install: ${packages_build_dir}/wrtools-core/token-make-install
 ${packages_build_dir}/doc-processing/token-make-install: ${packages_build_dir}/saxon-cli/token-make-install
 ${packages_build_dir}/doc-processing/token-make-install: ${packages_build_dir}/xalan-cli/token-make-install
+${packages_build_dir}/doc-processing/token-make-install: ${packages_build_dir}/xml-schema-validator/token-make-install
 
 #############################################################################
 # fallbacks for all packages
@@ -140,6 +142,12 @@ ${prefix}/bin/%: ${all_dir}/bin/%
 ${prefix}/%: ${all_dir}/%
 	${MKDIR_P} ${dir $@}
 	${INSTALL_DATA} $< $@
+
+#############################################################################
+# clean
+.PHONY: clean #   Remove regular build products
+clean:
+	${RM} -r ${tmp_dir}
 
 #############################################################################
 # make help: this must be the last target
