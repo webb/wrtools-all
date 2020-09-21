@@ -21,3 +21,7 @@
 	path = saxon-cli
 	url = https://github.com/webb/saxon-cli.git
 	branch = master
+[submodule "xml-schema-validator"]
+	path = xml-schema-validator
+	url = https://github.com/webb/xml-schema-validator.git
+	branch = master
