@@ -31,5 +31,6 @@ WR_check_prog_options(find,gfind find)
 WR_check_prog_options(realpath,grealpath realpath)
 
 AC_CONFIG_FILES([Makefile], [chmod 444 Makefile])
+AC_CONFIG_FILES([stow.mk], [chmod 444 stow.mk])
 AC_SUBST([config_files],$ac_config_files)
 AC_OUTPUT

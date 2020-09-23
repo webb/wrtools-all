@@ -2059,6 +2059,8 @@ done
 
 ac_config_files="$ac_config_files Makefile"
 
+ac_config_files="$ac_config_files stow.mk"
+
 config_files=$ac_config_files
 
 cat >confcache <<\_ACEOF
@@ -2770,6 +2772,7 @@ for ac_config_target in $ac_config_targets
 do
   case $ac_config_target in
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "stow.mk") CONFIG_FILES="$CONFIG_FILES stow.mk" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac
@@ -3197,6 +3200,7 @@ which seems to be undefined.  Please make sure it is defined" >&2;}
 
   case $ac_file$ac_mode in
     "Makefile":F) chmod 444 Makefile ;;
+    "stow.mk":F) chmod 444 stow.mk ;;
 
   esac
 done # for ac_tag
