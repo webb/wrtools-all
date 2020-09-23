@@ -3,20 +3,55 @@
 
 This repo packages up a set of tools, including:
 
-- WR Tools: Core: <https://github.com/webb/wrtools-core>
-- WR Tools: Git: <https://github.com/webb/wrtools-git>
+- https://github.com/webb/doc-processing
+- https://github.com/webb/saxon-cli.git
+- https://github.com/webb/schematron-cli.git
+- https://github.com/webb/wrtools-core.git
+- https://github.com/webb/wrtools-git.git
+- https://github.com/webb/xalan-cli.git
+- https://github.com/webb/xml-schema-validator.git
 
 Tools may require other tools to build and install, so they build in order, and the PATH for building each stage includes the build target directory. 
 
-# Usage
+# Install
 
-```
-$ ./configure --prefix=${install directory}
-$ make
-$ make install
-```
+Use Jabba to install & select Java JVM: <https://github.com/shyiko/jabba#installation>
 
-Assume things will break if you try to `make install` before you've done `make`. We don't know what all the files will be until everything is built.
+`$ jabba install zulu@1.11.0`
+
+`$ jabba use zulu@1.11.0`
+
+Grab all the packages, which are submodules to this git repo:
+
+`$ git submodule init`
+
+`$ git submodule update`
+
+Pick a root directory (I use `$HOME`) & configure:
+
+`$ ./configure --prefix=${root directory}`
+
+For example: `$ ./configure --prefix=/User/home/foo`
+
+Build the packages:
+
+`$ make`
+    
+Install into the directory you gave with `--prefix` above. There are 2 ways to do this: a direct install, and installing with `stow`. I vastly prefer `stow`.
+
+Installing with stow
+
+1. Make sure you have stow: `$ type -p stow` should not have an error. If you don't have stow, install it with your package manager.
+
+2. Run `make -f stow.mk install`, which will install the package in a directory `${prefix}/stow/wrtools-all`, and will link to there from `${prefix}/bin`, etc.
+
+3. Later, you can use `stow` to uninstall, or you can uninstall with `$ make -f stow.mk uninstall`
+
+Installing directly:
+
+1. `$ make install`
+
+2. Later, you can uninstall with `$ make uninstall`
 
 # License
 
@@ -32,40 +67,4 @@ details.
 
 You should have received a copy of the GNU General Public License along with
 this program.  If not, see <http://www.gnu.org/licenses/>.
-
-# Build a zip with everything in it
-
-```
-$ PATH=/usr/bin:/bin ./configure --prefix=$PWD/build/out && make zip
-```
-
-# Install a zip
-
-{example using stow}
-
-# Submodules to add
-
-- apache-tika.git
-- code-list-tools.git
-- doc-processing
-- gen-xsd-diagrams.git
-- jing-cli
-- mac-copy-to-inbox
-- niem-ndr-tools.git
-- niem-schema-assembly
-- pandoc-2.3
-- saxon-cli
-- schematron-cli.git
-- simple-xsd
-- wrtools-core
-- wrtools-git
-- wrtools-gui.git
-- wrtools-json
-- wrtools-user
-- xalan-cli
-- xml-schema-validator-0.1
-- xml-tools
-- xsd-rename.git
-
-
 
