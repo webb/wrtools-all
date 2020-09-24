@@ -53,6 +53,16 @@ Installing directly:
 
 2. Later, you can uninstall with `$ make uninstall`
 
+# Packages required
+
+Things you'll need from your package manager include:
+
+- make
+- gradle
+- zip
+- m4
+- stow
+
 # License
 
 This program is free software: you can redistribute it and/or modify it under
