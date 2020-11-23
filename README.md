@@ -62,6 +62,12 @@ Things you'll need from your package manager include:
 - zip
 - m4
 - stow
+- realpath (found in package coreutils)
+
+Packages you'll only need if you're rebuilding `configure` via `configure.mk`:
+
+- autoconf
+- automake
 
 # License
 
