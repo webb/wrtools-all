@@ -30,6 +30,7 @@ WR_check_prog(bash)
 WR_check_prog_options(find,gfind find)
 WR_check_prog_options(realpath,grealpath realpath)
 WR_check_prog(stow)
+WR_check_prog(gradle)
 
 AC_CONFIG_FILES([Makefile], [chmod 444 Makefile])
 AC_CONFIG_FILES([stow.mk], [chmod 444 stow.mk])
