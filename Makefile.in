@@ -39,7 +39,7 @@ realpath = @realpath@
 
 config_files = @config_files@ # output files built by configure
 
-packages = wrtools-core saxon-cli xalan-cli schematron-cli xml-schema-validator doc-processing
+packages = wrtools-core saxon-cli xalan-cli schematron-cli xml-schema-validator doc-processing wrtools-git
 
 # if "make" has been run, this will prep for "make install"
 ifeq (${all_dir},${wildcard ${all_dir}})
